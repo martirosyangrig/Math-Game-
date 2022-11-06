@@ -108,14 +108,14 @@ function numGenerator(){ // returns random nums ( depends  on lvl) and random op
     let num2;
 
     if(gameSettings.level === "Easy"){
-        num1 = randomInteger(0, 10)
-        num2 = randomInteger(0, 10)
+        num1 = randomInteger(1, 10)
+        num2 = randomInteger(1, 10)
     }else if(gameSettings.level === "Medium"){
-        num1 = randomInteger(10, 100)
-        num2 = randomInteger(10, 100)
+        num1 = randomInteger(1, 100)
+        num2 = randomInteger(1, 100)
     }else if(gameSettings.level === "Difficult"){
-        num1 = randomInteger(100, 999)
-        num2 = randomInteger(100, 999)
+        num1 = randomInteger(1, 999)
+        num2 = randomInteger(1, 999)
     }
 
     const option =  gameSettings.option[Math.floor(Math.random() * gameSettings.option.length)]
@@ -151,7 +151,7 @@ function chekAnswere(){ // checking our answere if correct incriment user poin i
         const [a,b,c] = charArr;
         const val = setAnswere.value
 
-        if(val != ""){
+        if(val != "" &&  !isNaN( parseInt( val.trim() ) ) ){
             if(val.trim() == parseInt(chekRealAnswere(a, b, c))){
                 user.point++
                 setScore()
